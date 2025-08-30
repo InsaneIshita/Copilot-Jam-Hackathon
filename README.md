@@ -77,10 +77,10 @@ FutureSim/
 
 ## 📸 Screenshots
 
-![Landing Page](screenshots/Screenshot 2025-08-30 152930.png)
-![Chatbot Interface](screenshots/Screenshot (402).png)
-![Chatbot Interface](screenshots/Screenshot 2025-08-30 152945.png)
-![Chatbot Interface](screenshots/Screenshot (410).png)
+![Landing Page](screenshots/Screenshot%202025-08-30%20152930.png)
+![Chatbot Interface](screenshots/Screenshot%20(402).png)
+![Chatbot Interface](screenshots/Screenshot%202025-08-30%20152945.png)
+![Chatbot Interface](screenshots/Screenshot%20(410).png)
 
 ---
 
