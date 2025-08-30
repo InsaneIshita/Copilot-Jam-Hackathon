@@ -71,7 +71,7 @@ FutureSim/
 ## 🌐 Deployed Project
 
 - **Deployed Site:** [FutureSim Deployed Web App](https://futuresim.netlify.app/)  
-- **Demo Video:** [Watch Demo](https://your-demo-video-link.com)  
+- **Demo Video:** [Watch Demo](demo3.mp4)  
 
 ---
 
