@@ -27,23 +27,44 @@ This project combines a sleek, interactive frontend with a powerful AI chatbot u
 
 ## 📁 Project Structure
 
+```plaintext
 FutureSim/
 │
+├── assets/
+│   └── bot.svg
+│
+├── chatbot/
+│   └── (chatbot integration files)
+│
+├── agent_instructions/
+│   └── basic_instructions.txt
+│
+├── training_data/
+│   ├── beyond_earth_2070.txt
+│   ├── chatbot_personality.txt
+│   ├── daily_life_society_2070.txt
+│   ├── environment_energy_2070.txt
+│   ├── future_cities_2070.txt
+│   ├── health_body_2070.txt
+│   ├── technology_ai_2070.txt
+│   ├── transport_travel_2070.txt
+│   └── chatbase_iframe.txt
+│
 ├── frontend/
-│ ├── index.html # Landing page
-│ ├── style.css # Custom styles
-│ ├── script.js # Frontend interactivity
-│ ├── assets/ # Images, SVGs, icons
+│   ├── index.html
+│   ├── script.js
+│   └── styles.css
 │
-├── ai-integration/
-│ ├── README.md # Instructions for AI setup
-│ └── chatbot-iframe.html # Chatbase iframe integration
+├── screenshots/
+│   ├── Screenshot (402).png
+│   ├── Screenshot (407).png
+│   ├── Screenshot (408).png
+│   ├── Screenshot (409).png
+│   ├── Screenshot (410).png
+│   └── Screenshot 2025-08-30 152930.png
 │
-├── screenshots/ # Screenshots of website
-├── demo-video/ # Demo video
-├── training-data/ # AI training text/resources
-├── LICENSE
 └── README.md
+```
 
 ---
 
@@ -56,6 +77,10 @@ FutureSim/
 
 ## 📸 Screenshots
 
+![Landing Page](screenshots/Screenshot 2025-08-30 152930.png)
+![Chatbot Interface](screenshots/Screenshot (402).png)
+![Chatbot Interface](screenshots/Screenshot 2025-08-30 152945.png)
+![Chatbot Interface](screenshots/Screenshot (410).png)
 
 ---
 
