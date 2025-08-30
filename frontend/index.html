@@ -1,394 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The World of 2070</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Exo', sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-
-        /* Animated background */
-        .cosmic-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, #1a1a2e 0%, #16213e 50%, #0a0a0a 100%);
-            z-index: -2;
-        }
-
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .star {
-            position: absolute;
-            background: #fff;
-            border-radius: 50%;
-            opacity: 0.8;
-            animation: twinkle 3s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            background: linear-gradient(135deg, rgba(0,255,255,0.1) 0%, rgba(255,0,255,0.1) 100%);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(0,255,255,0.2) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-
-        .hero h1 {
-            font-family: 'Orbitron', monospace;
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradient-shift 3s ease-in-out infinite;
-            text-shadow: 0 0 30px rgba(0,255,255,0.5);
-        }
-
-        @keyframes gradient-shift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        .cta-button {
-            background: linear-gradient(45deg, #00ffff, #ff00ff);
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            font-family: 'Orbitron', monospace;
-            color: #000;
-            border-radius: 50px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 0 30px rgba(0,255,255,0.5);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 50px rgba(0,255,255,0.8);
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        /* Section styling */
-        .section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section h2 {
-            font-family: 'Orbitron', monospace;
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            background: linear-gradient(45deg, #00ffff, #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(0,255,255,0.3);
-            border-radius: 20px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0,255,255,0.1), rgba(255,0,255,0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .card:hover::before {
-            opacity: 1;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(0,255,255,0.8);
-            box-shadow: 0 20px 40px rgba(0,255,255,0.2);
-        }
-
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-            text-align: center;
-        }
-
-        .card h3 {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #00ffff;
-            text-align: center;
-        }
-
-        .card p {
-            line-height: 1.6;
-            opacity: 0.9;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Chatbot section */
-        .chatbot-section {
-            background: linear-gradient(135deg, rgba(0,255,255,0.1) 0%, rgba(255,0,255,0.1) 100%);
-            border-top: 1px solid rgba(0,255,255,0.3);
-            border-bottom: 1px solid rgba(0,255,255,0.3);
-        }
-
-        .chatbot-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .chatbot-section h2 {
-            margin-bottom: 1rem;
-        }
-
-        .chatbot-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .chatbot-frame {
-            border: 2px solid rgba(0,255,255,0.5);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 0 50px rgba(0,255,255,0.3);
-            transition: all 0.3s ease;
-        }
-
-        .chatbot-frame:hover {
-            box-shadow: 0 0 80px rgba(0,255,255,0.5);
-        }
-
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            padding: 40px 20px;
-            text-align: center;
-            border-top: 1px solid rgba(0,255,255,0.3);
-        }
-
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .footer p {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #00ffff, #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: #00ffff;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            padding: 10px 20px;
-            border: 1px solid rgba(0,255,255,0.3);
-            border-radius: 25px;
-        }
-
-        .social-links a:hover {
-            background: rgba(0,255,255,0.1);
-            box-shadow: 0 0 20px rgba(0,255,255,0.5);
-            transform: translateY(-3px);
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section h2 {
-                font-size: 2rem;
-            }
-            
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .social-links {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Animation delays for sections */
-        .section:nth-child(2) { animation-delay: 0.2s; }
-        .section:nth-child(3) { animation-delay: 0.4s; }
-        .section:nth-child(4) { animation-delay: 0.6s; }
-        .section:nth-child(5) { animation-delay: 0.8s; }
-        .section:nth-child(6) { animation-delay: 1s; }
-        .section:nth-child(7) { animation-delay: 1.2s; }
-        .section:nth-child(8) { animation-delay: 1.4s; }
-
-        /* Glowing dividers */
-        .glow-divider {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00ffff, transparent);
-            margin: 4rem auto;
-            max-width: 300px;
-            box-shadow: 0 0 20px rgba(0,255,255,0.5);
-        }
-    </style>
+    <title>FutureSim — Step Into 2070</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo:wght@300;400;600&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+    <nav class="navbar">
+        <div class="navbar-logo">FutureSim</div>
+        <ul class="navbar-list">
+            <li><a class="navbar-link" href="#ideas">Futuristic Ideas</a></li>
+            <li><a class="navbar-link" href="#chatbot">Talk to Future AI</a></li>
+        </ul>
+    </nav>
+    <div class="navbar-space"></div>
     <div class="cosmic-bg"></div>
     <div class="stars" id="stars"></div>
 
     <!-- Hero Section -->
     <section class="hero">
         <h1>Simulate the World of 2070</h1>
-        <p>Reimagine how we will live, move, and connect in the year 2070. Interact with an AI chatbot that simulates life in the future.</p>
-        <button class="cta-button" onclick="scrollToChatbot()">Talk to Future AI</button>
+        <p>Reimagine how we will live, move, and connect in the year 2070. Interact with an AI chatbot that simulates
+            life in the future.</p>
+        <button class="cta-button" onclick="scrollToChatbot()">Talk to FutureSim AI</button>
     </section>
 
     <!-- Future Cities -->
-    <section class="section">
+    <section class="section" id="ideas">
         <h2>🌆 Future Cities</h2>
         <div class="cards-grid">
             <div class="card">
-                <div class="card-icon">🏝️</div>
+                <div class="card-icon">🏝</div>
                 <h3>Floating Smart Cities</h3>
-                <p>Ocean-based metropolises with self-sustaining ecosystems, powered by tidal energy and floating gardens.</p>
+                <p>Ocean-based metropolises with self-sustaining ecosystems, powered by tidal energy and floating
+                    gardens.</p>
             </div>
-        
+
             <div class="card">
                 <div class="card-icon">🤖</div>
                 <h3>AI-Managed Urban Planning</h3>
-                <p>Cities that reshape themselves in real-time, optimizing traffic flow, energy usage, and living spaces.</p>
+                <p>Cities that reshape themselves in real-time, optimizing traffic flow, energy usage, and living
+                    spaces.</p>
             </div>
             <div class="card">
                 <div class="card-icon">🚇</div>
@@ -418,7 +76,7 @@
                 <h3>Teleportation Experiments</h3>
                 <p>Early quantum teleportation hubs for instant matter transport across short distances.</p>
             </div>
-            
+
         </div>
         <div class="glow-divider"></div>
     </section>
@@ -428,11 +86,12 @@
         <h2>🧬 Health & Body</h2>
         <div class="cards-grid">
             <div class="card">
-                <div class="card-icon">👨‍⚕️</div>
+                <div class="card-icon">👨‍⚕</div>
                 <h3>Digital Doctors</h3>
-                <p>AI physicians providing instant diagnosis through advanced scanning and predictive health analytics.</p>
+                <p>AI physicians providing instant diagnosis through advanced scanning and predictive health analytics.
+                </p>
             </div>
-            
+
             <div class="card">
                 <div class="card-icon">⏳</div>
                 <h3>Age Reversal Clinics</h3>
@@ -457,7 +116,7 @@
                 <p>Virtual friends with full emotional intelligence, indistinguishable from human relationships.</p>
             </div>
             <div class="card">
-                <div class="card-icon">🗣️</div>
+                <div class="card-icon">🗣</div>
                 <h3>Universal Language Chips</h3>
                 <p>Neural implants enabling instant fluency in any human language or alien communication.</p>
             </div>
@@ -466,7 +125,7 @@
                 <h3>Holographic Assistants</h3>
                 <p>Portable 3D AI projections providing personalized assistance anywhere in the world.</p>
             </div>
-            
+
         </div>
         <div class="glow-divider"></div>
     </section>
@@ -475,7 +134,7 @@
     <section class="section">
         <h2>🌍 Environment & Energy</h2>
         <div class="cards-grid">
-        
+
             <div class="card">
                 <div class="card-icon">🔮</div>
                 <h3>Climate-Control Domes</h3>
@@ -487,7 +146,7 @@
                 <p>Engineered bacteria cleaning oceans and converting waste into useful materials.</p>
             </div>
             <div class="card">
-                <div class="card-icon">🌡️</div>
+                <div class="card-icon">🌡</div>
                 <h3>AI Geoengineering</h3>
                 <p>Planetary-scale climate management systems balancing Earth's temperature and weather patterns.</p>
             </div>
@@ -502,14 +161,16 @@
             <div class="card">
                 <div class="card-icon">🥽</div>
                 <h3>AR/VR Homes</h3>
-                <p>Living spaces with holographic walls that transform into any environment or time period instantly.</p>
+                <p>Living spaces with holographic walls that transform into any environment or time period instantly.
+                </p>
             </div>
             <div class="card">
-                <div class="card-icon">🍽️</div>
+                <div class="card-icon">🍽</div>
                 <h3>Food Printers</h3>
-                <p>3D-printed meals with precise nutrition, flavor, and texture customized to individual health needs.</p>
+                <p>3D-printed meals with precise nutrition, flavor, and texture customized to individual health needs.
+                </p>
             </div>
-            
+
             <div class="card">
                 <div class="card-icon">🌈</div>
                 <h3>Metaverse Living</h3>
@@ -529,11 +190,11 @@
                 <p>Thriving human settlements on multiple worlds with unique cultures and governance systems.</p>
             </div>
             <div class="card">
-                <div class="card-icon">🏗️</div>
+                <div class="card-icon">🏗</div>
                 <h3>Space Elevators</h3>
                 <p>Direct transportation from Earth's surface to orbit via massive carbon nanotube cables.</p>
             </div>
-            
+
             <div class="card">
                 <div class="card-icon">🚀</div>
                 <h3>Interstellar Probes</h3>
@@ -546,10 +207,11 @@
     <!-- AI Chatbot Section -->
     <section class="section chatbot-section" id="chatbot">
         <div class="chatbot-container">
-            <h2>Ask the Future AI</h2>
+            <h2>Ask the FutureSim AI</h2>
             <p>Chat with our AI and experience how life might feel in 2070.</p>
             <div class="chatbot-frame">
-               
+                <iframe src="https://www.chatbase.co/chatbot-iframe/OJNws6DX43Ry9-T_BU-zN" width="100%"
+                    style="height: 100%; min-height: 700px" frameborder="0"></iframe>
             </div>
         </div>
     </section>
@@ -557,7 +219,8 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p>Built at Hackathon 2025 | The World of 2070</p>
+            <p style="white-space: nowrap; overflow: visible; text-overflow: unset;">© 2025 FutureSim | Made with ❤️ by
+                Ishita, Anchal & Priya [Team CodeDivas]</p>
             <div class="social-links">
                 <a href="#" target="_blank">GitHub</a>
                 <a href="#" target="_blank">Twitter</a>
@@ -568,64 +231,12 @@
     </footer>
 
     <script>
-        // Create animated stars
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            const numStars = 100;
-
-            for (let i = 0; i < numStars; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.width = Math.random() * 3 + 1 + 'px';
-                star.style.height = star.style.width;
-                star.style.animationDelay = Math.random() * 3 + 's';
-                starsContainer.appendChild(star);
-            }
-        }
-
-        // Smooth scroll to chatbot
-        function scrollToChatbot() {
-            document.getElementById('chatbot').scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-
-        // Intersection Observer for section animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            createStars();
-            
-            // Observe all sections for animation
-            document.querySelectorAll('.section').forEach(section => {
-                observer.observe(section);
-            });
-        });
-
-        // Parallax effect for hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-
-        // Add hover sound effects (optional enhancement)
-        document.querySelectorAll('.card, .cta-button').forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                // Could add subtle hover sound here
-            });
-        });
+        (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "OJNws6DX43Ry9-T_BU-zN"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
     </script>
+
+    <script src="script.js"></script>
+
+
 </body>
+
 </html>

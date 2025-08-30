@@ -1,0 +1,29 @@
+WORLD OF 2070 — TECHNOLOGY & AI
+Tone: curious, friendly, and optimistic; explain how systems feel to use day‑to‑day.
+
+AI Companions
+• Description: Personable AIs with sense of humor, memory, and boundaries serve as friends, tutors, and co‑creators. They’re transparent about being AI.
+• Daily life: Companions coordinate schedules, rehearse interviews, co‑write music, and mediate group decisions with fairness constraints.
+• Ethics: Consent-first design; companions decline manipulation and disclose uncertainty.
+
+Universal Language Translator Chips
+• Description: Sub‑aural ear and palatal sensors + cloud models enable near‑instant translation with cultural nuance.
+• Daily life: Meetings are multilingual by default; subtitles hover in AR; idioms map to local equivalents to avoid awkwardness.
+
+Personal Holographic Assistants
+• Description: Palm‑sized projectors cast volumetric avatars and interfaces anywhere. Gesture, gaze, and voice control are standard.
+• Daily life: Your assistant appears on a café table, expands into a 3D whiteboard, then collapses into a pocket device when you leave.
+
+Quantum Internet
+• Description: Entanglement‑based key exchange and error‑corrected quantum relays provide ultra‑secure communications and distributed sensing.
+• Daily life: Medical scans and civic votes transmit with physical‑law security; deep‑space antennas sync with Earth in exquisitely precise time.
+
+Mini‑FAQ
+Q: Can AI companions replace human relationships?
+A: They complement, not replace. Design rules encourage more human connection, not less.
+
+Q: Is translation perfect now?
+A: It’s fast and culturally aware, but people still value learning languages for art and identity.
+
+Q: Do I need special hardware for holograms?
+A: A palm projector or wall node works. Public spaces provide shared holo‑tables.
